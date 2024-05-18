@@ -1,8 +1,8 @@
+from flask import Flask
 import random
 import json
-from flask import Flask
-from . import my_tools as tools
-from . import wikimedia_commons_api as wiki_api
+import util.my_tools as tools
+import util.wikimedia_commons_api as wiki_api
 
 app = Flask(__name__)
 
@@ -38,3 +38,7 @@ def generate_image(entity_type):
     }
 
     return json.dumps(payload)
+
+
+if __name__ == '__main__':
+    start_flask()
