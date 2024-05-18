@@ -1,5 +1,4 @@
 from colorama import *
-# from my_tools import url_payload_parser
 from . import my_tools as tools
 import os
 import requests
@@ -53,6 +52,3 @@ def save_image_from_url(url):
     except Exception as e:
         print(Fore.RED + f"Error downloading image from {url}: {e}")
         return
-
-
-# save_image_from_url('https://upload.wikimedia.org/wikipedia/commons/4/4f/Belgian_Railway_Line_207.png')

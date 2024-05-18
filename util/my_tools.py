@@ -37,4 +37,15 @@ def url_payload_parser(response):
 def pick_random_config_value():
     values = load_config_file('./pet_config.txt')
     random_index = random.randint(1, 999_999_999) % len(values)
-    return random_index
+    print(random_index)
+    print(values[random_index])
+    random_value = values[random_index]
+    return random_value
+
+
+def remove_svgs_from_list(list_of_urls):
+    for url in list_of_urls:
+        if url[-4:] == '.svg':
+            list_of_urls.remove(url)
+            # print(url[-4:])
+    return list_of_urls
