@@ -1,5 +1,6 @@
 from colorama import *
-from my_tools import *
+# from my_tools import url_payload_parser
+from . import my_tools as tools
 import os
 import requests
 
@@ -17,13 +18,14 @@ def fetch_wikimedia_urls(search_for, number_of_urls=3):
         'iiprop': 'url', # Image Information Properties (IIPROP)
         'gsrnamespace': 6, # Global Shared Repository (GSR) namespace: 6 is the value for file namespace
         'gsrlimit': number_of_urls,
-        'gsrsearch': search_for
+        'gsrsearch': search_for,
+        'filemime': 'image/jpeg|image/png'
     }
 
     print(Fore.BLUE + 'Sending request to wikimedia commons...')
     response = requests.get(wikimedia, params=parameters)
     if response.status_code == 200:
-        return url_payload_parser(response)
+        return tools.url_payload_parser(response)
     else:
         print(Fore.RED + f'ERROR! Urls could not be fetched. Response Code: {response.status_code}')
         return []
@@ -38,7 +40,7 @@ def save_image_from_url(url):
 
         # clean up url and use string for unique file name
         file_name = ''.join(url.split('/'))[13:]
-        download_path = f'../images/{file_name}'
+        download_path = f'./images/{file_name}'
 
         # save the file using byte chunks
         with open(download_path, 'wb') as file:
@@ -51,3 +53,6 @@ def save_image_from_url(url):
     except Exception as e:
         print(Fore.RED + f"Error downloading image from {url}: {e}")
         return
+
+
+# save_image_from_url('https://upload.wikimedia.org/wikipedia/commons/4/4f/Belgian_Railway_Line_207.png')
