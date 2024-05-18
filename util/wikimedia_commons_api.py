@@ -1,6 +1,7 @@
-from colorama import *#init, Fore
+from colorama import *
+from my_tools import *
+import os
 import requests
-import json
 
 
 # Function makes a request to wikimedia commons for urls with an input param for search topic 
@@ -28,20 +29,25 @@ def fetch_wikimedia_urls(search_for, number_of_urls=3):
         return []
 
 
-def url_payload_parser(response):
-    # grab the response data
-    json_payload = response.json()
-    payload_values = json_payload.get('query', {}).get('pages', {}).values()
-    
-    # console logging
-    print(Fore.GREEN + 'WIKIMEDIA RESPONSE: ' + str(response.status_code))
-    print(Fore.WHITE + 'PAYLOAD:')
-    print(json.dumps(json_payload, indent=2))
+# sends a req to wikimedia using an image url and then saves the image to local microservice folder /images
+def save_image_from_url(url):
+    try:
+        # https://foundation.wikimedia.org/wiki/Policy:User-Agent_policy
+        headers = {'User-Agent': 'CoolBot/0.0 (https://example.org/coolbot/; coolbot@example.org)'}
+        response = requests.get(url, headers=headers)
 
-    # grab the url values from each search result
-    image_urls = []
-    for value in payload_values:
-        image_urls.append(value['imageinfo'][0]['url'])
-    print(f'URLS:{image_urls}')
-    return image_urls
+        # clean up url and use string for unique file name
+        file_name = ''.join(url.split('/'))[13:]
+        download_path = f'../images/{file_name}'
 
+        # save the file using byte chunks
+        with open(download_path, 'wb') as file:
+            for byte_chunk in response.iter_content():
+                file.write(byte_chunk)
+        
+        # log output to console and return the absolute path of the downloaded image
+        print(f'Image downloaded successsfully! File saved as: {file_name}')
+        return os.path.abspath(download_path)
+    except Exception as e:
+        print(Fore.RED + f"Error downloading image from {url}: {e}")
+        return
