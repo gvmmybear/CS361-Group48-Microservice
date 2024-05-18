@@ -11,7 +11,7 @@ def start_flask():
 
 
 @app.route("/")
-def home():
+def health_check():
     return "Microservice Status: UP"
 
 
