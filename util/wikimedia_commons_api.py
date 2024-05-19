@@ -39,6 +39,7 @@ def save_image_from_url(url):
 
         # clean up url and use string for unique file name
         file_name = ''.join(url.split('/'))[13:]
+        file_name = ''.join(file_name.split('%'))
         download_path = f'./images/{file_name}'
 
         # save the file using byte chunks
