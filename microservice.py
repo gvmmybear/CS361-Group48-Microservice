@@ -1,10 +1,13 @@
 from flask import Flask
+from flask_cors import CORS, cross_origin
 import random
 import json
 import util.my_tools as tools
 import util.wikimedia_commons_api as wiki_api
 
 app = Flask(__name__)
+cors = CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
 
 def start_flask():
     app.run(host='localhost', port=2024, debug=True)
