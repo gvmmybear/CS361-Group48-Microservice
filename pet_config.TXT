@@ -29,7 +29,6 @@ Alpaca
 American buffalo (bison)
 American robin
 Amphibian
- 
 Anaconda
 Angelfish
 Anglerfish
@@ -57,13 +56,11 @@ Bass
 Bat
 Beaked whale
 Bear
- 
 Beaver
 Bedbug
 Bee
 Beetle
 Bird
- 
 Bison
 Blackbird
 Black panther
@@ -92,19 +89,16 @@ Cardinal
 Caribou
 Carp
 Cat
- 
 Catshark
 Caterpillar
 Catfish
 Cattle
- 
 Centipede
 Cephalopod
 Chameleon
 Cheetah
 Chickadee
 Chicken
- 
 Chimpanzee
 Chinchilla
 Chipmunk
@@ -133,18 +127,14 @@ Damselfly
 Deer
 Dingo
 Dinosaur
- 
 Dog
- 
 Dolphin
 Donkey
- 
 Dormouse
 Dove
 Dragonfly
 Dragon
 Duck
- 
 Dung beetle
 Eagle
 Earthworm
@@ -172,9 +162,7 @@ Fox
 Frog
 Fruit bat
 Gamefowl
- 
 Galliform
- 
 Gazelle
 Gecko
 Gerbil
@@ -184,10 +172,8 @@ Gibbon
 Gila monster
 Giraffe
 Goat
- 
 Goldfish
 Goose
- 
 Gopher
 Gorilla
 Grasshopper
@@ -198,12 +184,9 @@ Ground shark
 Ground sloth
 Grouse
 Guan
- 
 Guanaco
 Guineafowl
- 
 Guinea pig
- 
 Gull
 Guppy
 Haddock
@@ -221,7 +204,6 @@ Hippopotamus
 Hookworm
 Hornet
 Horse
- 
 Hoverfly
 Hummingbird
 Humpback whale
@@ -325,7 +307,6 @@ Peregrine falcon
 Pheasant
 Pig
 Pigeon
- 
 Pike
 Pilot whale
 Pinniped
@@ -350,7 +331,6 @@ Quail
 Quelea
 Quokka
 Rabbit
- 
 Raccoon
 Rainbow trout
 Rat
@@ -381,9 +361,7 @@ Sea lion
 Sea slug
 Sea snail
 Shark
- 
 Sheep
- 
 Shrew
 Shrimp
 Silkworm
@@ -395,7 +373,6 @@ Slug
 Smelt
 Snail
 Snake
- 
 Snipe
 Snow leopard
 Sockeye salmon
@@ -441,7 +418,6 @@ Tree frog
 Trout
 Tuna
 Turkey
- 
 Turtle
 Tyrannosaurus
 Urial
