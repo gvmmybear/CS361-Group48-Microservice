@@ -1,0 +1,78 @@
+
+<!-- THIS IS JUST A QUICK HTML/JS FILE THAT I THREW TOGETHER TO TEST THE MICROSERIVCE. JUST OPEN THE FILE IN A WEB BROWSER TO USE.  -->
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Microservice Test</h1>
+
+<form id="myForm1" onsubmit="generateRandomPet(event)">
+	
+	<button type="submit">Genereate Random Pet</button>
+</form>
+
+<br>
+<br>
+
+<form id="myForm2" onsubmit="generateImage(event)">
+	<button type="submit">Generate Image From Search</button>
+	<input type="text" id="search">
+</form>
+
+<br>
+<br>
+<br>
+
+<div id="response"></div>
+<img id="image" src="" alt="Image" width="400" height="250">
+ 
+</body>
+
+<script type='text/javascript'>
+	function generateRandomPet(event) {
+		event.preventDefault(); 
+		const form = document.getElementById('myForm1');
+		const req = {
+			method: 'GET'
+		};
+
+		fetch('http://localhost:2024/generateRandomPet', req)
+			.then(response => response.json())
+			.then(data => {
+				console.log(data);
+				document.getElementById('response').innerHTML = JSON.stringify(data, null, 2);
+				setTimeout(function(){
+					document.getElementById('image').src = data.image_path;
+				}, 100)
+			})
+			.catch(error => {
+				console.log(error.message);
+			});
+	}
+
+	function generateImage(event) {
+		event.preventDefault(); 
+		const form = document.getElementById('myForm2');
+		const req = {
+			method: 'GET'
+		};
+
+		let entity = document.getElementById('search').value
+		console.log(entity);
+
+		fetch(`http://localhost:2024/generateImage/${entity}`, req)
+			.then(response => response.json())
+			.then(data => {
+				console.log(data);
+				document.getElementById('response').innerHTML = JSON.stringify(data, null, 2);
+				setTimeout(function(){
+					document.getElementById('image').src = data.image_path;
+				}, 100)
+			})
+			.catch(error => {
+				console.log(error.message);
+			});
+	}
+
+</script>
+</html>
